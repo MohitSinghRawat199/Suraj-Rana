@@ -4,10 +4,10 @@ import SectionTitle from '../components/SectionTitle'
 
 export default function ContactPage() {
   const details = [
-    { icon: Phone, label: 'Phone', value: '+91 98765 43210' },
-    { icon: Mail, label: 'Email', value: 'hello@photographerstudio.com' },
+    { icon: Phone, label: 'Phone', value: '84709 61756' },
+    { icon: Mail, label: 'Email', value: 'surajrana557899@gmail.com' },
     { icon: MapPin, label: 'Location', value: 'India' },
-    { icon: MessageCircleMore, label: 'WhatsApp', value: '+91 98765 43210' },
+    { icon: MessageCircleMore, label: 'WhatsApp', value: '84709-61756' },
   ]
 
   return (

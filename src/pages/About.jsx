@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { BookCopy, Briefcase, Camera, GraduationCap, Sparkles } from 'lucide-react'
 import SectionTitle from '../components/SectionTitle'
+import AboutImage from '../assets/About.png'
 
 export default function AboutPage() {
   const education = [
@@ -28,7 +29,7 @@ export default function AboutPage() {
       >
         <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-stone-900">
           <img
-            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80"
+            src={AboutImage}
             alt="Photographer profile"
             className="h-full min-h-[520px] w-full object-cover"
           />

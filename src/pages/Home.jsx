@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Camera, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import heroImage from '../assets/Suraj.jpeg'
+import heroImage from '../assets/Hero.png'
+import About from '../assets/Suraj.jpeg'
 import CTASection from '../components/CTASection'
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
@@ -17,11 +18,12 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1800&q=80')",
+            backgroundImage: `url(${heroImage})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
           }}
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-20 sm:px-6 lg:px-8 lg:pb-28 lg:pt-32">
           <motion.div
@@ -78,12 +80,12 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="relative overflow-hidden rounded-[2rem] border border-[#d8b98a]/35 bg-gradient-to-br from-[#111214] via-[#161a1d] to-[#0b0b0c] p-3 shadow-[0_28px_80px_rgba(216,185,138,0.12)]">
+          <div className="relative mx-auto w-full max-w-[620px] overflow-hidden rounded-[2rem] border border-[#d8b98a]/35 bg-gradient-to-br from-[#111214] via-[#161a1d] to-[#0b0b0c] p-2 shadow-[0_28px_80px_rgba(216,185,138,0.12)] sm:p-3">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(216,185,138,0.18),transparent_35%)]" />
             <img
-              src={heroImage}
+              src={About}
               alt="Suraj Rana profile portrait"
-              className="relative h-[520px] w-full rounded-[1.5rem] object-cover object-center saturate-[1.05] contrast-[1.08] brightness-[0.92]"
+              className="relative h-auto max-h-[520px] w-full rounded-[1.4rem] object-cover object-center saturate-[1.05] contrast-[1.08] brightness-[0.92] sm:max-h-[460px] md:max-h-[520px]"
             />
           </div>
 

@@ -90,6 +90,66 @@ export const portfolioData = [
       'Clean ecommerce presentation and creative asset styling for product-focused brand storytelling and marketplace visibility.',
     behanceUrl: 'https://www.behance.net/gallery/205463831/usb-data-adapter-amzon-brand-store',
   },
+  {
+    id: 9,
+    title: 'Maternity Glow Session',
+    category: 'Maternity',
+    image:
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80',
+    description:
+      'A soft and elegant maternity portrait session focused on natural light, gentle emotion, and future-mother storytelling.',
+    behanceUrl: '#',
+  },
+  {
+    id: 10,
+    title: 'Family Lifestyle Story',
+    category: 'Portrait',
+    image:
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80',
+    description:
+      'Lifestyle portrait imagery capturing family warmth, candid emotion, and authentic storytelling in everyday moments.',
+    behanceUrl: '#',
+  },
+  {
+    id: 11,
+    title: 'Expecting Mother Editorial',
+    category: 'Maternity',
+    image:
+      'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80',
+    description:
+      'Editorial maternity styling with a graceful, premium look designed to highlight beauty, comfort, and anticipation.',
+    behanceUrl: '#',
+  },
+  {
+    id: 12,
+    title: 'Wedding Portraits',
+    category: 'Wedding',
+    image:
+      'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80',
+    description:
+      'Romantic wedding portraits capturing love, emotion, and timeless details in a refined editorial style.',
+    behanceUrl: '#',
+  },
+  {
+    id: 13,
+    title: 'Wedding Ceremony Story',
+    category: 'Wedding',
+    image:
+      'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
+    description:
+      'A cinematic wedding story telling the joy, vows, and movement of one of life’s most memorable days.',
+    behanceUrl: '#',
+  },
+  {
+    id: 14,
+    title: 'Couple Golden Hour',
+    category: 'Wedding',
+    image:
+      'https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80',
+    description:
+      'Golden-hour couple portraits with a soft romantic mood, perfect for timeless wedding imagery and album highlights.',
+    behanceUrl: '#',
+  },
 ]
 
 export const albumsData = [
