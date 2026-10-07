@@ -4,10 +4,10 @@ import SectionTitle from '../components/SectionTitle'
 
 export default function ContactPage() {
   const details = [
-    { icon: Phone, label: 'Phone', value: '84709 61756' },
+    { icon: Phone, label: 'Phone', value: '+91 84709 61756' },
     { icon: Mail, label: 'Email', value: 'surajrana557899@gmail.com' },
     { icon: MapPin, label: 'Location', value: 'India' },
-    { icon: MessageCircleMore, label: 'WhatsApp', value: '84709-61756' },
+    { icon: MessageCircleMore, label: 'WhatsApp', value: '+91 84709 61756' },
   ]
 
   return (
@@ -29,7 +29,7 @@ export default function ContactPage() {
           ))}
 
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/918470961756"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-5 py-3 text-sm font-medium text-white transition hover:brightness-110"

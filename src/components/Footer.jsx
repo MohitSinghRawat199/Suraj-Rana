@@ -30,7 +30,7 @@ export default function Footer() {
             <div className="flex gap-3 text-stone-300">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="rounded-full border border-white/10 p-2 hover:border-[#d8b98a]/50 hover:text-white"><Camera size={18} /></a>
               <a href="https://facebook.com" target="_blank" rel="noreferrer" className="rounded-full border border-white/10 p-2 hover:border-[#d8b98a]/50 hover:text-white"><Palette size={18} /></a>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="rounded-full border border-white/10 p-2 hover:border-[#d8b98a]/50 hover:text-white"><MessageCircleMore size={18} /></a>
+              <a href="https://wa.me/918470961756" target="_blank" rel="noreferrer" className="rounded-full border border-white/10 p-2 hover:border-[#d8b98a]/50 hover:text-white"><MessageCircleMore size={18} /></a>
             </div>
           </div>
         </div>
@@ -38,8 +38,8 @@ export default function Footer() {
         <div className="mt-10 flex flex-col gap-6 border-t border-white/10 pt-8 text-sm text-stone-400 md:flex-row md:items-center md:justify-between">
           <p>© 2026 PHOTOGRAPHER. All Rights Reserved.</p>
           <div className="flex flex-col gap-2 md:flex-row md:gap-5">
-            <span className="inline-flex items-center gap-2"><Phone size={14} /> +91 98765 43210</span>
-            <span className="inline-flex items-center gap-2"><Mail size={14} /> hello@photographerstudio.com</span>
+            <span className="inline-flex items-center gap-2"><Phone size={14} /> +91 84709 61756</span>
+            <span className="inline-flex items-center gap-2"><Mail size={14} /> surajrana557899@gmail.com</span>
             <span className="inline-flex items-center gap-2"><MapPin size={14} /> India</span>
           </div>
         </div>
