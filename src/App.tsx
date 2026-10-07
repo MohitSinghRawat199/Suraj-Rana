@@ -1,13 +1,14 @@
-import { useEffect } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import HomePage from './pages/Home'
-import AboutPage from './pages/About'
-import PortfolioPage from './pages/Portfolio'
-import ServicesPage from './pages/Services'
-import AlbumsPage from './pages/Albums'
-import ContactPage from './pages/Contact'
+
+const HomePage = lazy(() => import('./pages/Home'))
+const AboutPage = lazy(() => import('./pages/About'))
+const PortfolioPage = lazy(() => import('./pages/Portfolio'))
+const ServicesPage = lazy(() => import('./pages/Services'))
+const AlbumsPage = lazy(() => import('./pages/Albums'))
+const ContactPage = lazy(() => import('./pages/Contact'))
 
 const pageMeta = {
   '/': {
@@ -65,14 +66,22 @@ export default function App() {
       <Navbar />
 
       <main className="overflow-x-hidden">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/albums" element={<AlbumsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+        <Suspense
+          fallback={
+            <div className="flex min-h-[50vh] items-center justify-center text-sm uppercase tracking-[0.32em] text-[#d8b98a]">
+              Loading...
+            </div>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/albums" element={<AlbumsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Suspense>
       </main>
 
       <Footer />
