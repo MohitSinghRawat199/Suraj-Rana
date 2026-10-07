@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Camera, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import heroImage from '../assets/Hero.png'
+import heroImage from '../assets/hero.png'
 import About from '../assets/Suraj.jpeg'
 import CTASection from '../components/CTASection'
 import SectionTitle from '../components/SectionTitle'
