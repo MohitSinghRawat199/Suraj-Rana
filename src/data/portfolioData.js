@@ -264,19 +264,19 @@ export const navLinks = [
 export const testimonials = [
   {
     quote: 'Add a client-approved testimonial here to share what the experience and final photographs meant to them.',
-    name: 'Replace with client name',
+    name: 'Manish Rawat',
     project: 'Replace with project type',
     isPlaceholder: true,
   },
   {
     quote: 'Use this space for a real client note about the session, collaboration, or finished work.',
-    name: 'Replace with client name',
+    name: 'Sohit Rawat',
     project: 'Replace with project type',
     isPlaceholder: true,
   },
   {
     quote: 'Replace this sample copy with a verified review before publishing it as client feedback.',
-    name: 'Replace with client name',
+    name: 'Sachin Singh',
     project: 'Replace with project type',
     isPlaceholder: true,
   },
