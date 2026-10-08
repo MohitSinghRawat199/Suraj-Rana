@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Camera, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import heroImage from '../assets/hero.png'
+import { useState } from 'react'
 import About from '../assets/Suraj.jpeg'
 import CTASection from '../components/CTASection'
 import SectionTitle from '../components/SectionTitle'
@@ -10,6 +11,8 @@ import SkillCard from '../components/SkillCard'
 import { portfolioData, services, skillData } from '../data/portfolioData'
 
 export default function HomePage() {
+  const [showBooking, setShowBooking] = useState(false)
+  const [preset, setPreset] = useState('')
   const featured = portfolioData.slice(0, 6)
 
   return (
@@ -164,6 +167,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      <PricingSection
+        onBook={(pkg) => {
+          setPreset(pkg)
+          setShowBooking(true)
+        }}
+      />
+
+      <BookingModal open={showBooking} onClose={() => setShowBooking(false)} presetPackage={preset} />
       <CTASection />
     </>
   )
