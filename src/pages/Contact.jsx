@@ -17,13 +17,13 @@ export default function ContactPage() {
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="space-y-5">
           {details.map(({ icon: Icon, label, value }) => (
-            <div key={label} className="flex items-start gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.02] p-5">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#d8b98a]/10 text-[#d8b98a]">
+            <div key={label} className="flex items-start gap-4 rounded-[1.5rem] border border-stone-200 bg-white p-5">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#9b7445]/10 text-[#9b7445]">
                 <Icon size={18} />
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-stone-400">{label}</p>
-                <p className="mt-2 text-base text-stone-100">{value}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-stone-500">{label}</p>
+                <p className="mt-2 text-base text-stone-800">{value}</p>
               </div>
             </div>
           ))}

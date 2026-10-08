@@ -1,7 +1,8 @@
-import { Suspense, lazy, useEffect } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import socialPreview from './assets/hero-optimized.jpg'
 
 const HomePage = lazy(() => import('./pages/Home'))
 const AboutPage = lazy(() => import('./pages/About'))
@@ -12,28 +13,28 @@ const ContactPage = lazy(() => import('./pages/Contact'))
 
 const pageMeta = {
   '/': {
-    title: 'Photographer | Photography & Creative Media',
+    title: 'Suraj Rana | Photographer & Creative Media',
     description:
       'Professional photography, photo editing, graphic design and premium wedding storytelling.',
   },
   '/about': {
-    title: 'About | Photographer',
+    title: 'About | Suraj Rana',
     description: 'Creative photographer, editor and designer focused on emotion, artistry and visual storytelling.',
   },
   '/portfolio': {
-    title: 'Portfolio | Photographer',
+    title: 'Portfolio | Suraj Rana',
     description: 'Curated portfolio of wedding, maternity, newborn, portrait, and creative work.',
   },
   '/services': {
-    title: 'Services | Photographer',
+    title: 'Services | Suraj Rana',
     description: 'Wedding photography, retouching, album design, product photography and creative media services.',
   },
   '/albums': {
-    title: 'Albums | Photographer',
+    title: 'Albums | Suraj Rana',
     description: 'Luxury wedding album designs and storytelling presentation.',
   },
   '/contact': {
-    title: 'Contact | Photographer',
+    title: 'Contact | Suraj Rana',
     description: 'Book your photography session, inquiry, or custom media project.',
   },
 }
@@ -53,22 +54,46 @@ function PageMeta() {
     }
     metaDescription.setAttribute('content', current.description)
 
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [location.pathname])
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', current.title)
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', current.description)
+    let ogImage = document.querySelector('meta[property="og:image"]')
+    if (!ogImage) {
+      ogImage = document.createElement('meta')
+      ogImage.setAttribute('property', 'og:image')
+      document.head.appendChild(ogImage)
+    }
+    ogImage.setAttribute('content', socialPreview)
+
+    if (location.hash) {
+      requestAnimationFrame(() => document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' }))
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [location.pathname, location.hash])
 
   return null
 }
 
 export default function App() {
+  const [theme, setTheme] = useState(() => window.localStorage.getItem('site-theme') || 'dark')
+
+  function toggleTheme() {
+    setTheme((current) => {
+      const next = current === 'light' ? 'dark' : 'light'
+      window.localStorage.setItem('site-theme', next)
+      return next
+    })
+  }
+
   return (
-    <div className="min-h-screen bg-[#0b0b0c] text-stone-100 selection:bg-[#d8b98a]/30 selection:text-white">
+    <div className={`min-h-screen bg-[#faf9f6] text-stone-800 selection:bg-[#9b7445]/30 selection:text-stone-900 ${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}>
       <PageMeta />
-      <Navbar />
+      <Navbar theme={theme} onToggleTheme={toggleTheme} />
 
       <main className="overflow-x-hidden">
         <Suspense
           fallback={
-            <div className="flex min-h-[50vh] items-center justify-center text-sm uppercase tracking-[0.32em] text-[#d8b98a]">
+            <div className="flex min-h-[50vh] items-center justify-center text-sm uppercase tracking-[0.32em] text-[#9b7445]">
               Loading...
             </div>
           }

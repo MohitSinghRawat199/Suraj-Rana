@@ -7,7 +7,7 @@ export default function SkillCard({ skill }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.35 }}
-      className="rounded-2xl border border-white/10 bg-white/[0.02] px-4 py-3 text-center text-sm text-stone-200 shadow-[0_10px_30px_rgba(0,0,0,0.18)]"
+      className="rounded-2xl border border-stone-200 bg-white px-4 py-3 text-center text-sm text-stone-700 shadow-[0_10px_30px_rgba(0,0,0,0.18)]"
     >
       {skill}
     </motion.div>

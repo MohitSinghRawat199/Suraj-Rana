@@ -1,23 +1,34 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Camera, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import heroImage from '../assets/hero.png'
-import { useState } from 'react'
+import heroImage from '../assets/hero-optimized.jpg'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import About from '../assets/Suraj.jpeg'
 import CTASection from '../components/CTASection'
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
 import SkillCard from '../components/SkillCard'
+import PricingSection from '../components/PricingSection'
+import BookingModal from '../components/BookingModal'
+import TestimonialSection from '../components/TestimonialSection'
 import { portfolioData, services, skillData } from '../data/portfolioData'
 
 export default function HomePage() {
   const [showBooking, setShowBooking] = useState(false)
   const [preset, setPreset] = useState('')
+  const location = useLocation()
   const featured = portfolioData.slice(0, 6)
+
+  useEffect(() => {
+    if (location.hash) {
+      document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [location.hash])
 
   return (
     <>
-      <section className="relative overflow-hidden">
+      <section className="home-hero relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -35,11 +46,11 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#d8b98a]">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#9b7445]">
               Photographer • Photo Editor • Graphic Designer
             </p>
             <h1 className="text-5xl font-semibold tracking-tight text-white md:text-7xl">
-              Capturing Moments. <span className="text-[#d8b98a]">Creating Stories.</span>
+              Capturing Moments. <span className="text-[#9b7445]">Creating Stories.</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-stone-200 md:text-lg">
               I transform real moments and photographs into creative, professional and visually meaningful visual experiences.
@@ -48,13 +59,13 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 to="/portfolio"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d8b98a] px-6 py-3.5 text-sm font-medium text-stone-950 transition hover:brightness-110"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#9b7445] px-6 py-3.5 text-sm font-medium text-stone-950 transition hover:brightness-110"
               >
                 View My Work <ArrowRight size={16} />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-medium text-white transition hover:border-[#d8b98a]/80 hover:text-[#f4dbc1]"
+              className="inline-flex items-center justify-center rounded-full border border-white/30 bg-black/20 px-6 py-3.5 text-sm font-medium text-white transition hover:border-[#9b7445]/80 hover:text-[#d8b98a]"
               >
                 Let&apos;s Work Together
               </Link>
@@ -63,11 +74,11 @@ export default function HomePage() {
 
           <div className="mt-16 flex items-center gap-5 text-sm text-stone-200">
             <div className="flex items-center gap-3 rounded-full border border-white/10 bg-black/20 px-3 py-2">
-              <Camera size={16} className="text-[#d8b98a]" />
+              <Camera size={16} className="text-[#9b7445]" />
               <span>4+ Years Experience</span>
             </div>
             <div className="flex items-center gap-3 rounded-full border border-white/10 bg-black/20 px-3 py-2">
-              <Sparkles size={16} className="text-[#d8b98a]" />
+              <Sparkles size={16} className="text-[#9b7445]" />
               <span>Luxury Storytelling</span>
             </div>
           </div>
@@ -83,26 +94,28 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="relative mx-auto w-full max-w-[620px] overflow-hidden rounded-[2rem] border border-[#d8b98a]/35 bg-gradient-to-br from-[#111214] via-[#161a1d] to-[#0b0b0c] p-2 shadow-[0_28px_80px_rgba(216,185,138,0.12)] sm:p-3">
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-[420px] overflow-hidden rounded-[2rem] border border-[#9b7445]/35 bg-gradient-to-br from-white via-[#f7f2e9] to-[#efe6d8] p-2 shadow-[0_28px_80px_rgba(90,67,39,0.12)] sm:p-3">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(216,185,138,0.18),transparent_35%)]" />
             <img
               src={About}
               alt="Suraj Rana profile portrait"
-              className="relative h-auto max-h-[520px] w-full rounded-[1.4rem] object-cover object-center saturate-[1.05] contrast-[1.08] brightness-[0.92] sm:max-h-[460px] md:max-h-[520px]"
+              loading="lazy"
+              decoding="async"
+              className="relative h-full w-full rounded-[1.4rem] object-contain object-center saturate-[1.05] contrast-[1.08] brightness-[0.92]"
             />
           </div>
 
           <div className="relative">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d8b98a]/30 bg-[#d8b98a]/8 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#f4dbc1]">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#9b7445]/30 bg-[#9b7445]/8 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#77552f]">
               Behind the Lens
             </div>
             <SectionTitle eyebrow="Behind the Lens" title="Thoughtful imagery, styled with intention." />
-            <p className="text-base leading-8 text-stone-300 md:text-lg">
+            <p className="text-base leading-8 text-stone-600 md:text-lg">
               I am a passionate photographer, photo editor and graphic designer with a strong interest in visual storytelling, album design and creative media. My work blends natural emotion with refined post-production to create imagery that feels authentic, elevated and memorable.
             </p>
             <Link
               to="/about"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#d8b98a]/35 bg-[#d8b98a]/10 px-5 py-3 text-sm font-medium text-[#f4dbc1] transition hover:border-[#d8b98a]/70 hover:bg-[#d8b98a]/15"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#9b7445]/35 bg-[#9b7445]/10 px-5 py-3 text-sm font-medium text-[#77552f] transition hover:border-[#9b7445]/70 hover:bg-[#9b7445]/15"
             >
               More About Me <ArrowRight size={16} />
             </Link>
@@ -110,14 +123,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white/[0.02] py-20">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle eyebrow="Featured Work" title="A visual language shaped by emotion and detail." align="center" />
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {featured.map((item, index) => (
               <div key={item.id} className={index === 0 || index === 4 ? 'md:col-span-2' : ''}>
-                <div className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-900">
+                <div className="home-featured-card group relative overflow-hidden rounded-[1.5rem] border border-stone-200 bg-white">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -126,8 +139,8 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6">
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-[#d8b98a]">{item.category}</p>
-                    <h3 className="mt-2 text-2xl font-medium text-white">{item.title}</h3>
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-[#9b7445]">{item.category}</p>
+                    <h3 className="mt-2 text-2xl font-medium text-stone-900">{item.title}</h3>
                   </div>
                 </div>
               </div>
@@ -137,7 +150,7 @@ export default function HomePage() {
           <div className="mt-10 flex justify-center">
             <Link
               to="/portfolio"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-white transition hover:border-[#d8b98a]/60 hover:text-[#f4dbc1]"
+              className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-stone-50 px-5 py-3 text-sm font-medium text-stone-900 transition hover:border-[#9b7445]/60 hover:text-[#77552f]"
             >
               View Full Portfolio <ArrowRight size={16} />
             </Link>
@@ -155,7 +168,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white/[0.02] py-20">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle eyebrow="Skills" title="Crafting visuals with precision and creative intent." align="center" />
 
@@ -175,6 +188,7 @@ export default function HomePage() {
       />
 
       <BookingModal open={showBooking} onClose={() => setShowBooking(false)} presetPackage={preset} />
+      <TestimonialSection />
       <CTASection />
     </>
   )

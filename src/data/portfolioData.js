@@ -2,10 +2,13 @@ export const portfolioCategories = [
   'All',
   'Wedding',
   'Portrait',
+  'Events',
+  'Pre-Wedding',
+  'Fashion',
+  'Editing',
   'Maternity',
   'Newborn',
   'Product',
-  'Creative Editing',
   'Graphic Design',
 ]
 
@@ -23,7 +26,7 @@ export const portfolioData = [
   {
     id: 2,
     title: 'Ecommerce Jewellery Product Shoot',
-    category: 'Product',
+    category: 'Fashion',
     image:
       'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8568f8255428353.Y3JvcCw1MzE4LDQxNjAsNDYwLDA.jpg',
     description:
@@ -63,7 +66,7 @@ export const portfolioData = [
   {
     id: 6,
     title: 'Social Media Post',
-    category: 'Creative Editing',
+    category: 'Editing',
     image:
       'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/d943d3255427035.Y3JvcCwxMDgwLDg0NCwwLDI1MQ.jpg',
     description:
@@ -133,7 +136,7 @@ export const portfolioData = [
   {
     id: 13,
     title: 'Wedding Ceremony Story',
-    category: 'Wedding',
+    category: 'Events',
     image:
       'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
     description:
@@ -143,12 +146,37 @@ export const portfolioData = [
   {
     id: 14,
     title: 'Couple Golden Hour',
-    category: 'Wedding',
+    category: 'Pre-Wedding',
     image:
       'https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80',
     description:
       'Golden-hour couple portraits with a soft romantic mood, perfect for timeless wedding imagery and album highlights.',
     behanceUrl: '#',
+  },
+]
+
+const portfolioItem = (id) => portfolioData.find((item) => item.id === id)
+
+export const caseStudies = [
+  {
+    id: 'wedding-portraits',
+    title: portfolioItem(12).title,
+    location: '',
+    category: portfolioItem(12).category,
+    story: portfolioItem(12).description,
+    images: [portfolioItem(12), portfolioItem(13), portfolioItem(14)],
+    editingProcess: 'Color correction, tonal refinement, and detail retouching while keeping the photographs natural.',
+    beforeAfter: null,
+  },
+  {
+    id: 'newborn-editing',
+    title: portfolioItem(1).title,
+    location: '',
+    category: 'Editing',
+    story: portfolioItem(1).description,
+    images: [portfolioItem(1), portfolioItem(5)],
+    editingProcess: 'Gentle retouching and compositional cleanup with attention to realistic skin tones and soft detail.',
+    beforeAfter: null,
   },
 ]
 
@@ -179,46 +207,35 @@ export const services = [
       'Capture wedding moments, ceremonies, portraits and emotional memories with cinematic detail.',
   },
   {
+    icon: 'UserRound',
+    title: 'Portrait Photography',
+    description: 'Thoughtful portraits shaped by natural expression, considered light and confident direction.',
+  },
+  {
+    icon: 'Heart',
+    title: 'Pre-Wedding Photography',
+    description: 'Relaxed couple sessions that tell your story with cinematic, personal images.',
+  },
+  {
+    icon: 'PartyPopper',
+    title: 'Event Photography',
+    description: 'Atmosphere, people and meaningful details documented with a candid editorial eye.',
+  },
+  {
     icon: 'WandSparkles',
-    title: 'Photo Editing & Retouching',
+    title: 'Photo Editing',
     description:
       'Professional retouching, skin correction, color grading and creative enhancement while preserving realism.',
   },
   {
     icon: 'BookOpenText',
-    title: 'Wedding Album Designing',
-    description:
-      'Luxury album layouts, premium finishing and beautiful storytelling in 12x24 and 12x36 formats.',
-  },
-  {
-    icon: 'Sparkles',
-    title: 'Maternity Photography',
-    description:
-      'Graceful maternity portraits and editorial-inspired shoots that celebrate this special chapter.',
-  },
-  {
-    icon: 'Baby',
-    title: 'Newborn & Baby Photography',
-    description:
-      'Natural, soft and creative newborn portraits that feel timeless and deeply personal.',
-  },
-  {
-    icon: 'PackageOpen',
-    title: 'Product Photography',
-    description:
-      'Clean and attractive product images for businesses, ecommerce and social media campaigns.',
+    title: 'Album Design',
+    description: 'Story-led wedding and celebration albums with polished layouts and considered pacing.',
   },
   {
     icon: 'Palette',
-    title: 'Graphic Designing',
-    description:
-      'Creative posters, promotional visuals, social graphics and branded content designed to stand out.',
-  },
-  {
-    icon: 'Clapperboard',
-    title: 'Social Media Content',
-    description:
-      'Social media creatives, reels concepts and visual promotional content tailored for digital growth.',
+    title: 'Graphic Design',
+    description: 'Clean, cohesive graphic work for album covers, promotional visuals and digital content.',
   },
 ]
 
@@ -237,9 +254,30 @@ export const skillData = [
 
 export const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
   { label: 'Portfolio', path: '/portfolio' },
+  { label: 'About', path: '/about' },
   { label: 'Services', path: '/services' },
-  { label: 'Albums', path: '/albums' },
+  { label: 'Testimonials', path: '/#testimonials' },
   { label: 'Contact', path: '/contact' },
+]
+
+export const testimonials = [
+  {
+    quote: 'Add a client-approved testimonial here to share what the experience and final photographs meant to them.',
+    name: 'Replace with client name',
+    project: 'Replace with project type',
+    isPlaceholder: true,
+  },
+  {
+    quote: 'Use this space for a real client note about the session, collaboration, or finished work.',
+    name: 'Replace with client name',
+    project: 'Replace with project type',
+    isPlaceholder: true,
+  },
+  {
+    quote: 'Replace this sample copy with a verified review before publishing it as client feedback.',
+    name: 'Replace with client name',
+    project: 'Replace with project type',
+    isPlaceholder: true,
+  },
 ]

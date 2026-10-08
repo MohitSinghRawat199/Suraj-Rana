@@ -40,10 +40,10 @@ export default function AlbumsPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="mt-20 rounded-[2rem] border border-white/10 bg-white/[0.02] p-6 md:p-8"
+        className="mt-20 rounded-[2rem] border border-stone-200 bg-white p-6 md:p-8"
       >
-        <h3 className="text-3xl font-medium text-white">Crafted with storytelling in mind</h3>
-        <p className="mt-4 text-base leading-8 text-stone-300">
+        <h3 className="text-3xl font-medium text-stone-900">Crafted with storytelling in mind</h3>
+        <p className="mt-4 text-base leading-8 text-stone-600">
           Every album is designed to feel personal, tactile and visually refined—giving couples a treasured keepsake that can be revisited for years to come.
         </p>
       </motion.div>

@@ -5,8 +5,11 @@ const initialForm = {
   email: '',
   phone: '',
   service: '',
+  date: '',
   message: '',
 }
+
+const contactEmail = 'surajrana557899@gmail.com'
 
 export default function ContactForm() {
   const [form, setForm] = useState(initialForm)
@@ -45,33 +48,46 @@ export default function ContactForm() {
     }
 
     setErrors({})
-    setSuccess('Your inquiry has been sent successfully. I will get back to you soon.')
-    setForm(initialForm)
+    const subject = `Portfolio inquiry: ${form.service}`
+    const body = [
+      'NEW PORTFOLIO INQUIRY',
+      '',
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `Event type: ${form.service}`,
+      `Event date: ${form.date || 'Not provided'}`,
+      '',
+      'Message:',
+      form.message,
+    ].join('\n')
+    setSuccess('Your email app will open with the inquiry details ready to send.')
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-[1.8rem] border border-white/10 bg-[#101011] p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-[1.8rem] border border-stone-200 bg-white p-6 md:p-8">
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-sm text-stone-200">Name</label>
+          <label className="mb-2 block text-sm text-stone-700">Name</label>
           <input
             name="name"
             value={form.name}
             onChange={handleChange}
-            className="w-full rounded-xl border border-white/10 bg-stone-950/60 px-4 py-3 text-sm text-white placeholder:text-stone-400 focus:border-[#d8b98a] focus:outline-none"
+            className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 placeholder:text-stone-500 focus:border-[#9b7445] focus:outline-none"
             placeholder="Your name"
           />
           {errors.name && <p className="mt-2 text-xs text-red-300">{errors.name}</p>}
         </div>
 
         <div>
-          <label className="mb-2 block text-sm text-stone-200">Email</label>
+          <label className="mb-2 block text-sm text-stone-700">Email</label>
           <input
             name="email"
             type="email"
             value={form.email}
             onChange={handleChange}
-            className="w-full rounded-xl border border-white/10 bg-stone-950/60 px-4 py-3 text-sm text-white placeholder:text-stone-400 focus:border-[#d8b98a] focus:outline-none"
+            className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 placeholder:text-stone-500 focus:border-[#9b7445] focus:outline-none"
             placeholder="Your email"
           />
           {errors.email && <p className="mt-2 text-xs text-red-300">{errors.email}</p>}
@@ -80,27 +96,30 @@ export default function ContactForm() {
 
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-sm text-stone-200">Phone</label>
+          <label className="mb-2 block text-sm text-stone-700">Phone</label>
           <input
             name="phone"
             value={form.phone}
             onChange={handleChange}
-            className="w-full rounded-xl border border-white/10 bg-stone-950/60 px-4 py-3 text-sm text-white placeholder:text-stone-400 focus:border-[#d8b98a] focus:outline-none"
+            className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 placeholder:text-stone-500 focus:border-[#9b7445] focus:outline-none"
             placeholder="Your phone"
           />
           {errors.phone && <p className="mt-2 text-xs text-red-300">{errors.phone}</p>}
         </div>
 
         <div>
-          <label className="mb-2 block text-sm text-stone-200">Service Required</label>
+          <label className="mb-2 block text-sm text-stone-700">Event Type</label>
           <select
             name="service"
             value={form.service}
             onChange={handleChange}
-            className="w-full rounded-xl border border-white/10 bg-stone-950/60 px-4 py-3 text-sm text-white focus:border-[#d8b98a] focus:outline-none"
+            className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 focus:border-[#9b7445] focus:outline-none"
           >
-            <option value="">Select a service</option>
+            <option value="">Select an event or project type</option>
             <option value="Wedding Photography">Wedding Photography</option>
+            <option value="Portrait Photography">Portrait Photography</option>
+            <option value="Pre-Wedding Photography">Pre-Wedding Photography</option>
+            <option value="Event Photography">Event Photography</option>
             <option value="Photo Editing">Photo Editing</option>
             <option value="Album Designing">Album Designing</option>
             <option value="Maternity Photography">Maternity Photography</option>
@@ -114,21 +133,32 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="mb-2 block text-sm text-stone-200">Message</label>
+        <label className="mb-2 block text-sm text-stone-700">Event Date</label>
+        <input
+          name="date"
+          type="date"
+          value={form.date}
+          onChange={handleChange}
+          className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 focus:border-[#9b7445] focus:outline-none"
+        />
+      </div>
+
+      <div>
+        <label className="mb-2 block text-sm text-stone-700">Message</label>
         <textarea
           name="message"
           rows="5"
           value={form.message}
           onChange={handleChange}
           placeholder="Tell me about your project or event"
-          className="w-full rounded-xl border border-white/10 bg-stone-950/60 px-4 py-3 text-sm text-white placeholder:text-stone-400 focus:border-[#d8b98a] focus:outline-none"
+          className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-900 placeholder:text-stone-500 focus:border-[#9b7445] focus:outline-none"
         />
         {errors.message && <p className="mt-2 text-xs text-red-300">{errors.message}</p>}
       </div>
 
       <button
         type="submit"
-        className="inline-flex items-center justify-center rounded-full bg-[#d8b98a] px-5 py-3 text-sm font-medium text-stone-950 transition hover:brightness-110"
+        className="inline-flex items-center justify-center rounded-full bg-[#9b7445] px-5 py-3 text-sm font-medium text-stone-950 transition hover:brightness-110"
       >
         Send Inquiry
       </button>
