@@ -11,7 +11,7 @@ export default function PortfolioCard({ item, index = 0, onClick }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.96 }}
       whileHover={{ y: -6, scale: 1.01 }}
-      transition={{ duration: 0.25, layout: { duration: 0.3 } }}
+      transition={{ duration: 0.25, delay: Math.min(index * 0.04, 0.16), layout: { duration: 0.3 } }}
       style={{ gridRowEnd: `span ${index % 4 === 0 ? 4 : index % 3 === 0 ? 2 : 3}` }}
       className="portfolio-card group relative block h-full min-h-0 overflow-hidden rounded-[1.6rem] border border-white/10 bg-stone-900 text-left"
       aria-label={`Open ${item.title}`}

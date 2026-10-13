@@ -163,6 +163,26 @@ textarea {
   touch-action: none;
 }
 
+.photo-hover {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.photo-hover:hover {
+  transform: scale(1.035);
+}
+
+button:not(:disabled),
+a[href] {
+  transition-property: all;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button:not(:disabled):active,
+a[href]:active {
+  transform: scale(0.985);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -175,6 +195,12 @@ textarea {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .photo-hover:hover,
+  button:not(:disabled):active,
+  a[href]:active {
+    transform: none;
   }
 }
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const serviceIcons = { Camera, UserRound, Heart, PartyPopper, WandSparkles, BookOpenText, Palette }
 
-export default function ServiceCard({ title, description, icon }) {
+export default function ServiceCard({ title, description, icon, index = 0 }) {
   const Icon = serviceIcons[icon] || Camera
 
   return (
@@ -12,7 +12,7 @@ export default function ServiceCard({ title, description, icon }) {
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.045, 0.18) }}
       className="rounded-[1.6rem] border border-stone-200 bg-white p-6 shadow-[0_20px_45px_rgba(0,0,0,0.18)]"
     >
       <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-[#9b7445]/30 bg-[#9b7445]/10 text-[#77552f]">

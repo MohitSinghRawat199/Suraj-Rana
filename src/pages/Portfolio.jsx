@@ -8,6 +8,7 @@ import CaseStudyCard from '../components/CaseStudyCard'
 import BeforeAfterSlider from '../components/BeforeAfterSlider'
 import { caseStudies, portfolioCategories, portfolioData } from '../data/portfolioData'
 import ProfileImage from '../assets/Suraj.jpeg'
+import Reveal from '../components/Reveal'
 
 export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')
@@ -50,11 +51,11 @@ export default function PortfolioPage() {
       <section className="mt-24" aria-labelledby="case-studies-heading">
         <SectionTitle id="case-studies-heading" eyebrow="Selected stories" title="Photography case studies" description="The story, photographs, and finishing details behind selected projects." />
         <div className="grid gap-7 lg:grid-cols-2">
-          {caseStudies.map((project) => <CaseStudyCard key={project.id} project={project} />)}
+          {caseStudies.map((project, index) => <CaseStudyCard key={project.id} project={project} index={index} />)}
         </div>
       </section>
 
-      <section className="mt-24" aria-labelledby="editing-heading">
+      <Reveal as="section" className="mt-24" aria-labelledby="editing-heading">
         <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <SectionTitle id="editing-heading" eyebrow="Editing" title="A closer look at the finish" description="Move the divider to compare the original photograph with a subtle preview treatment." />
@@ -62,7 +63,7 @@ export default function PortfolioPage() {
           </div>
           <BeforeAfterSlider originalImage={ProfileImage} editedImage={ProfileImage} title="Profile portrait sample" />
         </div>
-      </section>
+      </Reveal>
 
       <AnimatePresence>
         {currentItem && (

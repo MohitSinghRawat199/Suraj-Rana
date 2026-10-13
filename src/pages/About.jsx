@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { BookCopy, Briefcase, Camera, GraduationCap, Sparkles } from 'lucide-react'
 import SectionTitle from '../components/SectionTitle'
 import AboutImage from '../assets/About-optimized.jpg'
+import Reveal from '../components/Reveal'
 
 export default function AboutPage() {
   const education = [
@@ -34,7 +35,7 @@ export default function AboutPage() {
             alt="Photographer profile"
             loading="lazy"
             decoding="async"
-            className="h-full min-h-[520px] w-full object-cover"
+            className="photo-hover h-full min-h-[520px] w-full object-cover"
           />
         </div>
 
@@ -71,7 +72,7 @@ export default function AboutPage() {
         </div>
       </motion.div>
 
-      <div className="mt-20 grid gap-8 lg:grid-cols-2">
+      <Reveal className="mt-20 grid gap-8 lg:grid-cols-2">
         <div className="rounded-[1.8rem] border border-stone-200 bg-white p-6 md:p-8">
           <div className="mb-6 flex items-center gap-3">
             <GraduationCap className="text-[#9b7445]" size={22} />
@@ -102,17 +103,17 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </div>
+      </Reveal>
 
-      <section className="mt-8 rounded-[1.8rem] border border-white/10 bg-white/[0.02] p-6 md:p-8" aria-labelledby="tools-heading">
+      <Reveal as="section" className="mt-8 rounded-[1.8rem] border border-white/10 bg-white/[0.02] p-6 md:p-8" aria-labelledby="tools-heading">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#d8b98a]">Tools</p>
         <h2 id="tools-heading" className="mt-3 text-2xl font-medium text-white">Software and creative workflow</h2>
         <div className="mt-5 flex flex-wrap gap-3">
           {tools.map((tool) => <span key={tool} className="rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-stone-200">{tool}</span>)}
         </div>
-      </section>
+      </Reveal>
 
-      <div className="mt-20 rounded-[2rem] border border-stone-200 bg-gradient-to-r from-white via-[#f7f2e9] to-[#efe6d8] p-6 md:p-8">
+      <Reveal className="mt-20 rounded-[2rem] border border-stone-200 bg-gradient-to-r from-white via-[#f7f2e9] to-[#efe6d8] p-6 md:p-8">
         <div className="mb-4 flex items-center gap-3">
           <BookCopy className="text-[#9b7445]" size={22} />
           <h3 className="text-2xl font-medium text-stone-900">Career Objective</h3>
@@ -120,7 +121,7 @@ export default function AboutPage() {
         <p className="text-base leading-8 text-stone-600 md:text-lg">
           I am currently looking for an opportunity where I can contribute my creativity and technical skills, work with a professional team, learn from new experiences and grow my career in the Photography, Photo Editing, Graphic Designing and Creative Media industry.
         </p>
-      </div>
+      </Reveal>
     </div>
   )
 }

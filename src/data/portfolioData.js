@@ -1,3 +1,6 @@
+import newbornAlbum01 from '../assets/drive-portfolio/drive-root-01.jpg'
+import newbornAlbum02 from '../assets/drive-portfolio/drive-root-02.jpg'
+
 export const portfolioCategories = [
   'All',
   'Wedding',
@@ -12,13 +15,32 @@ export const portfolioCategories = [
   'Graphic Design',
 ]
 
+const drivePhotoGroups = {
+  root: { category: 'Newborn', title: 'Newborn Album 1' },
+  album2: { category: 'Maternity', title: 'Maternity Album' },
+  album3a: { category: 'Newborn', title: 'Newborn Album 3A' },
+  album3b: { category: 'Newborn', title: 'Newborn Album 3B' },
+}
+
+const drivePhotos = Object.entries(
+  import.meta.glob('../assets/drive-portfolio/*.jpg', { eager: true, import: 'default' }),
+)
+  .map(([path, image]) => {
+    const match = path.match(/drive-(root|album2|album3a|album3b)-(\d+)\.jpg$/)
+    if (!match) return null
+
+    const [, group, number] = match
+    return { group, number: Number(number), image, ...drivePhotoGroups[group] }
+  })
+  .filter((photo) => photo && !(photo.group === 'root' && photo.number <= 2))
+  .sort((a, b) => a.group.localeCompare(b.group) || a.number - b.number)
+
 export const portfolioData = [
   {
     id: 1,
     title: 'Newborn Photo Editing',
     category: 'Newborn',
-    image:
-      'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/4fbc07255428631.Y3JvcCwxMDY2LDgzMywwLDM4Mg.jpeg',
+    image: newbornAlbum01,
     description:
       'Soft newborn retouching and compositional cleanup that preserves tenderness, realism, and gentle emotional storytelling.',
     behanceUrl: 'https://www.behance.net/gallery/255428631/newborn-photo-editing',
@@ -57,8 +79,7 @@ export const portfolioData = [
     id: 5,
     title: 'New Born Photography',
     category: 'Newborn',
-    image:
-      'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/5b1968255427499.Y3JvcCw1MzE4LDQxNjAsNDYwLDA.jpg',
+    image: newbornAlbum02,
     description:
       'Warm, editorial newborn portraits with a calm, natural mood that highlights intimate family moments and baby details.',
     behanceUrl: 'https://www.behance.net/gallery/255427499/new-born-photography',
@@ -127,8 +148,7 @@ export const portfolioData = [
     id: 12,
     title: 'Wedding Portraits',
     category: 'Wedding',
-    image:
-      'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/wedding-r1.jpg',
     description:
       'Romantic wedding portraits capturing love, emotion, and timeless details in a refined editorial style.',
     behanceUrl: '#',
@@ -136,9 +156,8 @@ export const portfolioData = [
   {
     id: 13,
     title: 'Wedding Ceremony Story',
-    category: 'Events',
-    image:
-      'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
+    category: 'Wedding',
+    image: '/images/wedding-r2.jpg',
     description:
       'A cinematic wedding story telling the joy, vows, and movement of one of life’s most memorable days.',
     behanceUrl: '#',
@@ -146,13 +165,29 @@ export const portfolioData = [
   {
     id: 14,
     title: 'Couple Golden Hour',
-    category: 'Pre-Wedding',
-    image:
-      'https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80',
+    category: 'Wedding',
+    image: '/images/wedding-r3.jpg',
     description:
       'Golden-hour couple portraits with a soft romantic mood, perfect for timeless wedding imagery and album highlights.',
     behanceUrl: '#',
   },
+  {
+    id: 15,
+    title: 'Wedding Album Portrait',
+    category: 'Wedding',
+    image: '/images/wedding-r4.jpg',
+    description:
+      'A refined wedding album portrait bringing bridal details and a timeless editorial finish together.',
+    behanceUrl: '#',
+  },
+  ...drivePhotos.map((photo, index) => ({
+    id: 16 + index,
+    title: `${photo.title} ${photo.number}`,
+    category: photo.category,
+    image: photo.image,
+    description: `${photo.category} photography from the shared Drive portfolio collection.`,
+    behanceUrl: '#',
+  })),
 ]
 
 const portfolioItem = (id) => portfolioData.find((item) => item.id === id)
@@ -164,7 +199,7 @@ export const caseStudies = [
     location: '',
     category: portfolioItem(12).category,
     story: portfolioItem(12).description,
-    images: [portfolioItem(12), portfolioItem(13), portfolioItem(14)],
+    images: [portfolioItem(12), portfolioItem(13), portfolioItem(14), portfolioItem(15)],
     editingProcess: 'Color correction, tonal refinement, and detail retouching while keeping the photographs natural.',
     beforeAfter: null,
   },

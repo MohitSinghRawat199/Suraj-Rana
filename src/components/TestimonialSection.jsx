@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react'
 import { testimonials } from '../data/portfolioData'
+import Reveal from './Reveal'
 
 export default function TestimonialSection() {
   const [active, setActive] = useState(0)
@@ -12,7 +13,7 @@ export default function TestimonialSection() {
   }
 
   return (
-    <section id="testimonials" className="scroll-mt-24 bg-white/[0.02] py-20">
+    <Reveal as="section" id="testimonials" className="scroll-mt-24 bg-white/[0.02] py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#d8b98a]">Testimonials</p>
@@ -42,6 +43,6 @@ export default function TestimonialSection() {
           </div>
         </div>
       </div>
-    </section>
+    </Reveal>
   )
 }

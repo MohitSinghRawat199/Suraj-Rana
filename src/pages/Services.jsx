@@ -1,6 +1,7 @@
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
 import { portfolioData, services } from '../data/portfolioData'
+import Reveal from '../components/Reveal'
 
 const albumDesignExample = portfolioData.find((item) => item.id === 3)
 
@@ -10,17 +11,18 @@ export default function ServicesPage() {
       <SectionTitle eyebrow="Services" title="Creative solutions tailored to your story." description="From weddings and portraits to product visuals and graphic design, each service is built to feel elevated, personal and visually rich." />
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {services.map((service) => (
+        {services.map((service, index) => (
           <ServiceCard
             key={service.title}
             title={service.title}
             description={service.description}
             icon={service.icon}
+            index={index}
           />
         ))}
       </div>
 
-      <div className="mt-20 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <Reveal className="mt-20 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="rounded-[2rem] border border-stone-200 bg-white p-6 md:p-8">
           <h3 className="text-3xl font-medium text-stone-900">Wedding Album Design</h3>
           <p className="mt-4 text-base leading-8 text-stone-600">
@@ -37,10 +39,12 @@ export default function ServicesPage() {
           <img
             src={albumDesignExample.image}
             alt="Birthday album design portfolio example"
-            className="h-full min-h-[260px] w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            className="photo-hover h-full min-h-[260px] w-full object-cover"
           />
         </div>
-      </div>
+      </Reveal>
     </div>
   )
 }

@@ -12,6 +12,7 @@ import SkillCard from '../components/SkillCard'
 import PricingSection from '../components/PricingSection'
 import BookingModal from '../components/BookingModal'
 import TestimonialSection from '../components/TestimonialSection'
+import Reveal from '../components/Reveal'
 import { portfolioData, services, skillData } from '../data/portfolioData'
 
 export default function HomePage() {
@@ -92,7 +93,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <Reveal as="section" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="relative mx-auto aspect-[3/4] w-full max-w-[420px] overflow-hidden rounded-[2rem] border border-[#9b7445]/35 bg-gradient-to-br from-white via-[#f7f2e9] to-[#efe6d8] p-2 shadow-[0_28px_80px_rgba(90,67,39,0.12)] sm:p-3">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(216,185,138,0.18),transparent_35%)]" />
@@ -101,7 +102,7 @@ export default function HomePage() {
               alt="Suraj Rana profile portrait"
               loading="lazy"
               decoding="async"
-              className="relative h-full w-full rounded-[1.4rem] object-contain object-center saturate-[1.05] contrast-[1.08] brightness-[0.92]"
+              className="photo-hover relative h-full w-full rounded-[1.4rem] object-contain object-center saturate-[1.05] contrast-[1.08] brightness-[0.92]"
             />
           </div>
 
@@ -121,9 +122,9 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="bg-white py-20">
+      <Reveal as="section" className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle eyebrow="Featured Work" title="A visual language shaped by emotion and detail." align="center" />
 
@@ -156,29 +157,29 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <Reveal as="section" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="Services" title="Creative solutions for every important moment." align="center" />
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {services.slice(0, 8).map((service) => (
-            <ServiceCard key={service.title} title={service.title} description={service.description} icon={service.icon} />
+          {services.slice(0, 8).map((service, index) => (
+            <ServiceCard key={service.title} title={service.title} description={service.description} icon={service.icon} index={index} />
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="bg-white py-20">
+      <Reveal as="section" className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle eyebrow="Skills" title="Crafting visuals with precision and creative intent." align="center" />
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {skillData.map((skill) => (
-              <SkillCard key={skill} skill={skill} />
+            {skillData.map((skill, index) => (
+              <SkillCard key={skill} skill={skill} index={index} />
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <PricingSection
         onBook={(pkg) => {

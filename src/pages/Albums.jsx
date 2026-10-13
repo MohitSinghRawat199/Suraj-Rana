@@ -13,8 +13,8 @@ export default function AlbumsPage() {
       <SectionTitle eyebrow="Albums" title="Wedding albums designed to last a lifetime." description="Luxury album stories crafted with elegance, emotion and premium presentation." />
 
       <div className="grid gap-8 lg:grid-cols-2">
-        {albumsData.map((album) => (
-          <AlbumCard key={album.id} album={album} onClick={() => setSelectedAlbum(album)} />
+        {albumsData.map((album, index) => (
+          <AlbumCard key={album.id} album={album} index={index} onClick={() => setSelectedAlbum(album)} />
         ))}
       </div>
 

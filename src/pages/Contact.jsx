@@ -1,6 +1,7 @@
 import { MapPin, Mail, MessageCircleMore, Phone } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 import SectionTitle from '../components/SectionTitle'
+import Reveal from '../components/Reveal'
 
 export default function ContactPage() {
   const details = [
@@ -14,7 +15,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionTitle eyebrow="Contact" title="Let&apos;s Create Something Beautiful" description="Tell me about your vision, occasion or project, and I’ll help bring it to life with thoughtful imagery and polished creative direction." />
 
-      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <Reveal className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="space-y-5">
           {details.map(({ icon: Icon, label, value }) => (
             <div key={label} className="flex items-start gap-4 rounded-[1.5rem] border border-stone-200 bg-white p-5">
@@ -39,7 +40,7 @@ export default function ContactPage() {
         </div>
 
         <ContactForm />
-      </div>
+      </Reveal>
     </div>
   )
 }

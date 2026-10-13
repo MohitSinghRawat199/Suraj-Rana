@@ -1,9 +1,10 @@
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import Reveal from './Reveal'
 
 export default function CTASection() {
   return (
-    <section className="py-20">
+    <Reveal as="section" className="py-20">
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-[#9b7445]/20 bg-gradient-to-r from-white via-[#f7f2e9] to-[#efe6d8] px-6 py-12 shadow-[0_30px_80px_rgba(68,50,28,0.10)] md:px-12">
         <div className="flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
@@ -23,6 +24,6 @@ export default function CTASection() {
           </Link>
         </div>
       </div>
-    </section>
+    </Reveal>
   )
 }

@@ -1,11 +1,16 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 
-export default function AlbumCard({ album, onClick }) {
+export default function AlbumCard({ album, onClick, index = 0 }) {
+  const prefersReducedMotion = useReducedMotion()
+
   return (
     <motion.article
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.25 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      whileHover={prefersReducedMotion ? undefined : { y: -6 }}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.08, 0.16) }}
       className="group overflow-hidden rounded-[1.8rem] border border-stone-200 bg-white"
     >
       <div className="relative overflow-hidden">

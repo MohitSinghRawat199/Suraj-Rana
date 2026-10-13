@@ -2,13 +2,13 @@ import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import BeforeAfterSlider from './BeforeAfterSlider'
 
-export default function CaseStudyCard({ project }) {
+export default function CaseStudyCard({ project, index = 0 }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.07, 0.14) }}
       className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/[0.02]"
     >
       <div className="grid gap-1 sm:grid-cols-2">
@@ -19,7 +19,7 @@ export default function CaseStudyCard({ project }) {
             alt={`${project.title} photograph ${index + 1}`}
             loading="lazy"
             decoding="async"
-            className={`h-64 w-full object-cover ${project.images.length === 3 && index === 0 ? 'sm:row-span-2 sm:h-full' : ''}`}
+            className={`photo-hover h-64 w-full object-cover ${project.images.length === 3 && index === 0 ? 'sm:row-span-2 sm:h-full' : ''}`}
           />
         ))}
       </div>
