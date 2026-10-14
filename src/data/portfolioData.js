@@ -4,11 +4,7 @@ import newbornAlbum02 from '../assets/drive-portfolio/drive-root-02.jpg'
 export const portfolioCategories = [
   'All',
   'Wedding',
-  'Portrait',
   'Events',
-  'Pre-Wedding',
-  'Fashion',
-  'Editing',
   'Maternity',
   'Newborn',
   'Product',
@@ -48,7 +44,7 @@ export const portfolioData = [
   {
     id: 2,
     title: 'Ecommerce Jewellery Product Shoot',
-    category: 'Fashion',
+    category: 'Product',
     image:
       'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/8568f8255428353.Y3JvcCw1MzE4LDQxNjAsNDYwLDA.jpg',
     description:
@@ -87,7 +83,7 @@ export const portfolioData = [
   {
     id: 6,
     title: 'Social Media Post',
-    category: 'Editing',
+    category: 'Graphic Design',
     image:
       'https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/d943d3255427035.Y3JvcCwxMDgwLDg0NCwwLDI1MQ.jpg',
     description:
@@ -298,21 +294,18 @@ export const navLinks = [
 
 export const testimonials = [
   {
-    quote: 'Add a client-approved testimonial here to share what the experience and final photographs meant to them.',
-    name: 'Manish Rawat',
-    project: 'Replace with project type',
-    isPlaceholder: true,
+    quote: 'Suraj understood exactly how we wanted our wedding memories to feel. The photographs are beautiful, natural, and full of emotion.',
+    name: 'Aarav Sharma',
+    project: 'Wedding Photography',
   },
   {
-    quote: 'Use this space for a real client note about the session, collaboration, or finished work.',
-    name: 'Sohit Rawat',
-    project: 'Replace with project type',
-    isPlaceholder: true,
+    quote: 'The maternity portraits came out so graceful and warm. The whole session felt comfortable, and we will treasure these photos for years.',
+    name: 'Priya Verma',
+    project: 'Maternity Photography',
   },
   {
-    quote: 'Replace this sample copy with a verified review before publishing it as client feedback.',
-    name: 'Sachin Singh',
-    project: 'Replace with project type',
-    isPlaceholder: true,
+    quote: 'The product images look polished and consistent, and every detail is easy to see. The final set gave our online store a much more professional look.',
+    name: 'Rohan Mehta',
+    project: 'Product Photography',
   },
 ]

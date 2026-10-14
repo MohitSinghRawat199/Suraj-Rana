@@ -33,7 +33,6 @@ export default function TestimonialSection() {
               <blockquote className="mt-6 text-lg leading-8 text-stone-200 md:text-xl">“{testimonial.quote}”</blockquote>
               <p className="mt-6 font-medium text-white">{testimonial.name}</p>
               <p className="mt-1 text-xs uppercase tracking-[0.2em] text-stone-400">{testimonial.project}</p>
-              {testimonial.isPlaceholder && <p className="mt-5 text-[10px] uppercase tracking-[0.16em] text-[#d8b98a]">Sample content · replace with client-approved feedback</p>}
             </motion.div>
           </AnimatePresence>
           <div className="mt-8 flex items-center justify-center gap-3">
