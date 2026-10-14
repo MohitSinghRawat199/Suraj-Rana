@@ -16,17 +16,18 @@ const drivePhotoGroups = {
   album2: { category: 'Maternity', title: 'Maternity Album' },
   album3a: { category: 'Newborn', title: 'Newborn Album 3A' },
   album3b: { category: 'Newborn', title: 'Newborn Album 3B' },
+  jasmine: { category: 'Maternity', title: 'Jasmine Arora Maternity' },
 }
 
 const drivePhotos = Object.entries(
   import.meta.glob('../assets/drive-portfolio/*.jpg', { eager: true, import: 'default' }),
 )
   .map(([path, image]) => {
-    const match = path.match(/drive-(root|album2|album3a|album3b)-(\d+)\.jpg$/)
+    const match = path.match(/drive-(root|album2|album3a|album3b|jasmine)-(\d+)\.jpg$/)
     if (!match) return null
 
     const [, group, number] = match
-    return { group, number: Number(number), image, ...drivePhotoGroups[group] }
+    return { id: `${group}-${number}`, group, number: Number(number), image, ...drivePhotoGroups[group] }
   })
   .filter((photo) => photo && !(photo.group === 'root' && photo.number <= 2))
   .sort((a, b) => a.group.localeCompare(b.group) || a.number - b.number)
@@ -207,6 +208,16 @@ export const caseStudies = [
     story: portfolioItem(1).description,
     images: [portfolioItem(1), portfolioItem(5)],
     editingProcess: 'Gentle retouching and compositional cleanup with attention to realistic skin tones and soft detail.',
+    beforeAfter: null,
+  },
+  {
+    id: 'jasmine-arora-maternity',
+    title: 'Jasmine Arora Maternity Session',
+    location: '',
+    category: 'Maternity',
+    story: 'Maternity portraits created for Jasmine Arora, capturing a special chapter through a collection of polished portraits.',
+    images: drivePhotos.filter((photo) => photo.group === 'jasmine').slice(0, 4),
+    editingProcess: 'Natural color and light refinement with careful attention to skin tones and portrait detail.',
     beforeAfter: null,
   },
 ]

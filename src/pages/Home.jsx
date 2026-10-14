@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Camera, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import heroImage from '../assets/hero-optimized.jpg'
+import heroImage from '../assets/hero.png'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import About from '../assets/Suraj.jpeg'
@@ -31,11 +31,11 @@ export default function HomePage() {
     <>
       <section className="home-hero relative overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-black bg-contain bg-top bg-no-repeat"
           style={{
             backgroundImage: `url(${heroImage})`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
+            backgroundPosition: 'center top',
+            backgroundSize: '100% auto',
           }}
         />
         <div className="absolute inset-0 bg-black/60" />
